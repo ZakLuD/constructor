@@ -1,0 +1,6 @@
+{
+  "framework": "nextjs",
+  "installCommand": "npm install",
+  "buildCommand": "npm run build -w @cms/shared && npm run build -w @cms/plugin-sdk && npm run build -w @cms/web",
+  "outputDirectory": "apps/web/.next"
+}

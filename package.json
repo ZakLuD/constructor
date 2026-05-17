@@ -1,0 +1,28 @@
+{
+  "name": "privacy-first-site-builder",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Privacy-first full-stack Website Builder, CMS, and SaaS admin platform.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm run dev -w @cms/api\" \"npm run dev -w @cms/web\"",
+    "build": "npm run build -w @cms/shared && npm run build -w @cms/plugin-sdk && npm run build -w @cms/api && npm run build -w @cms/web",
+    "lint": "npm run lint -w @cms/api && npm run lint -w @cms/web",
+    "typecheck": "npm run typecheck -w @cms/shared && npm run typecheck -w @cms/plugin-sdk && npm run typecheck -w @cms/api && npm run typecheck -w @cms/web",
+    "format": "prettier --write .",
+    "prisma:generate": "prisma generate --schema prisma/schema.prisma",
+    "prisma:migrate": "prisma migrate dev --schema prisma/schema.prisma",
+    "prisma:deploy": "prisma migrate deploy --schema prisma/schema.prisma",
+    "prisma:seed": "npm run build -w @cms/shared && tsx prisma/seed.ts"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "prettier": "^3.4.2",
+    "prisma": "^6.2.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
