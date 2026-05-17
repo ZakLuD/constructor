@@ -58,17 +58,15 @@ docker compose up --build
 
 ## Free Public Deployment
 
-For a free hosted setup, use:
+For a free hosted setup without Render, use:
 
-- Vercel Hobby for `apps/web`
-- Render Free Web Service for `apps/api`
+- Vercel Hobby for `apps/web` and `/api/*` serverless API
 - Neon Free Postgres for `DATABASE_URL`
 
 The project includes:
 
 ```txt
 vercel.json
-render.yaml
 docs/FREE_DEPLOYMENT_RU.md
 ```
 
